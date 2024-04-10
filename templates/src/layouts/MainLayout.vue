@@ -23,112 +23,6 @@
         <q-space />
         <transition appear enter-active-class="animated zoomIn">
           <q-btn
-            v-show="lang !== 'zh-hans'"
-            icon="img:statics/icons/IOS.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/ios.html')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >IOS APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang === 'zh-hans'"
-            icon="img:statics/icons/IOS.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/zh/ios.html')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >IOS APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang !== 'zh-hans'"
-            icon="img:statics/icons/android.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/android.html')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >Android APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang === 'zh-hans'"
-            icon="img:statics/icons/android.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/zh/android.html')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >Android APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            icon="img:statics/icons/GitHub.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://github.com/GreaterWMS/GreaterWMS')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >GitHub Link</q-tooltip
-            >
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            icon="api"
-            round
-            dense
-            flat
-            @click="apiLink()"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >{{ $t('index.api') }}</q-tooltip
-            >
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
             square
             dense
             flat
@@ -358,20 +252,6 @@
           <q-separator />
           <q-item
             clickable
-            :to="{ name: 'capitallist' }"
-            @click="linkChange('finance')"
-            v-ripple
-            exact
-            :active="link === 'finance' && link !== ''"
-            :class="{ 'my-menu-link': link === 'finance' && link !== '' }"
-          >
-            <q-item-section avatar
-              ><q-icon name="devices_other"
-            /></q-item-section>
-            <q-item-section>{{ $t("menuItem.finance") }}</q-item-section>
-          </q-item>
-          <q-item
-            clickable
             :to="{ name: 'goodslist' }"
             @click="linkChange('goods')"
             v-ripple
@@ -420,20 +300,6 @@
               ><q-icon name="assignment_ind"
             /></q-item-section>
             <q-item-section>{{ $t("menuItem.staff") }}</q-item-section>
-          </q-item>
-          <q-item
-            clickable
-            :to="{ name: 'driverlist' }"
-            @click="linkChange('driver')"
-            v-ripple
-            exact
-            :active="link === 'driver' && link !== ''"
-            :class="{ 'my-menu-link': link === 'driver' && link !== '' }"
-          >
-            <q-item-section avatar
-              ><q-icon name="transfer_within_a_station"
-            /></q-item-section>
-            <q-item-section>{{ $t("menuItem.driver") }}</q-item-section>
           </q-item>
           <q-separator />
           <q-item

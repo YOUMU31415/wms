@@ -59,7 +59,7 @@ class AsnListViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         id = self.get_project()
         if self.request.user:
-            empty_qs = AsnListModel.objects.filter(Q(openid=self.request.auth.openid, asn_status=1, is_delete=False) & Q(supplier=''))
+            empty_qs = AsnListModel.objects.filter(Q(openid=self.request.auth.openid, asn_status=3, is_delete=False) & Q(supplier=''))
             cur_date = timezone.now()
             date_check = relativedelta(day=1)
             if len(empty_qs) > 0:
@@ -119,10 +119,10 @@ class AsnListViewSet(viewsets.ModelViewSet):
         if qs.openid != self.request.auth.openid:
             raise APIException({"detail": "Cannot delete data which not yours"})
         else:
-            if qs.asn_status == 1:
+            if qs.asn_status == 3:
                 qs.is_delete = True
                 asn_detail_list = AsnDetailModel.objects.filter(openid=self.request.auth.openid, asn_code=qs.asn_code,
-                                              asn_status=1, is_delete=False)
+                                              asn_status=3, is_delete=False)
                 for i in range(len(asn_detail_list)):
                     goods_qty_change = stocklist.objects.filter(openid=self.request.auth.openid,
                                                                 goods_code=str(asn_detail_list[i].goods_code)).first()
@@ -135,7 +135,7 @@ class AsnListViewSet(viewsets.ModelViewSet):
                 headers = self.get_success_headers(serializer.data)
                 return Response(serializer.data, status=200, headers=headers)
             else:
-                raise APIException({"detail": "This ASN Status Is Not '1'"})
+                raise APIException({"detail": "This ASN Status Is Not '3'"})
 
 class AsnDetailViewSet(viewsets.ModelViewSet):
     """
@@ -301,7 +301,7 @@ class AsnDetailViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         data = self.request.data
         if AsnListModel.objects.filter(openid=self.request.auth.openid, asn_code=str(data['asn_code']),
-                                       asn_status=1, is_delete=False).exists():
+                                       asn_status=3, is_delete=False).exists():
             if supplier.objects.filter(openid=self.request.auth.openid, supplier_name=str(data['supplier']),
                                        is_delete=False).exists():
                 staff_name = staff.objects.filter(openid=self.request.auth.openid,
@@ -426,7 +426,7 @@ class AsnDetailViewSet(viewsets.ModelViewSet):
             else:
                 raise APIException({"detail": "Supplier does not exists"})
         else:
-            raise APIException({"detail": "This ASN Status Is Not 1"})
+            raise APIException({"detail": "This ASN Status Is Not 3"})
 
 class AsnViewPrintViewSet(viewsets.ModelViewSet):
     """

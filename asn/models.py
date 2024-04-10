@@ -2,7 +2,7 @@ from django.db import models
 
 class AsnListModel(models.Model):
     asn_code = models.CharField(max_length=255, verbose_name="ASN Code")
-    asn_status = models.BigIntegerField(default=1, verbose_name="ASN Status")
+    asn_status = models.BigIntegerField(default=3, verbose_name="ASN Status")
     total_weight = models.FloatField(default=0, verbose_name="Total Weight")
     total_volume = models.FloatField(default=0, verbose_name="Total Volume")
     total_cost = models.FloatField(default=0, verbose_name="Total Cost")
@@ -23,7 +23,7 @@ class AsnListModel(models.Model):
 
 class AsnDetailModel(models.Model):
     asn_code = models.CharField(max_length=255, verbose_name="ASN Code")
-    asn_status = models.BigIntegerField(default=1, verbose_name="ASN Status")
+    asn_status = models.BigIntegerField(default=3, verbose_name="ASN Status")
     supplier = models.CharField(max_length=255, verbose_name="ASN Supplier")
     goods_code = models.CharField(max_length=255, verbose_name="Goods Code")
     goods_desc = models.CharField(max_length=255, verbose_name="Goods Description")

@@ -46,43 +46,12 @@
           <q-tr :props="props">
             <q-td key="asn_code" :props="props">{{ props.row.asn_code }}</q-td>
             <q-td key="asn_status" :props="props">{{ props.row.asn_status }}</q-td>
-            <q-td key="total_weight" :props="props">{{ props.row.total_weight.toFixed(4) }}</q-td>
-            <q-td key="total_volume" :props="props">{{ props.row.total_volume.toFixed(4) }}</q-td>
+            <q-td key="good_qty" :props="props">{{ props.row.goods_qty }}</q-td>
             <q-td key="supplier" :props="props">{{ props.row.supplier }}</q-td>
             <q-td key="creater" :props="props">{{ props.row.creater }}</q-td>
             <q-td key="create_time" :props="props">{{ props.row.create_time }}</q-td>
             <q-td key="update_time" :props="props">{{ props.row.update_time }}</q-td>
             <q-td key="action" :props="props" style="width: 100px">
-              <q-btn
-                round
-                flat
-                push
-                color="info"
-                icon="visibility"
-                @click="viewData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('printthisasn') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="positive"
-                icon="img:statics/inbound/preloadstock.png"
-                @click="preloadData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('confirmdelivery') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="positive"
-                icon="img:statics/inbound/presortstock.png"
-                @click="presortData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('finishloading') }}</q-tooltip>
-              </q-btn>
               <q-btn
                 round
                 flat
@@ -114,20 +83,6 @@
                 <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('delete') }}</q-tooltip>
               </q-btn>
             </q-td>
-            <template v-if="props.row.transportation_fee.detail !== []">
-              <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
-                <q-list>
-                  <div v-for="(transportation_fee, index) in props.row.transportation_fee.detail" :key="index">
-                    <q-item v-ripple>
-                      <q-item-section>
-                        <q-item-label>{{ transportation_fee.transportation_supplier }}</q-item-label>
-                        <q-item-label>{{ $t('estimate') }}: {{ transportation_fee.transportation_cost }}</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                  </div>
-                </q-list>
-              </q-tooltip>
-            </template>
           </q-tr>
         </template>
       </q-table>
@@ -720,8 +675,7 @@ export default {
       columns: [
         { name: 'asn_code', required: true, label: this.$t('inbound.view_asn.asn_code'), align: 'left', field: 'asn_code' },
         { name: 'asn_status', label: this.$t('inbound.view_asn.asn_status'), field: 'asn_status', align: 'center' },
-        { name: 'total_weight', label: this.$t('inbound.view_asn.total_weight'), field: 'total_weight', align: 'center' },
-        { name: 'total_volume', label: this.$t('inbound.view_asn.total_volume'), field: 'total_volume', align: 'center' },
+        { name: 'goods_qty', label: this.$t('inbound.view_asn.goods_qty'), field: 'goods_qty', align: 'center' },
         { name: 'supplier', label: this.$t('baseinfo.view_supplier.supplier_name'), field: 'supplier', align: 'center' },
         { name: 'creater', label: this.$t('creater'), field: 'creater', align: 'center' },
         { name: 'create_time', label: this.$t('createtime'), field: 'create_time', align: 'center' },
@@ -1080,9 +1034,9 @@ export default {
       var _this = this
       _this.isEdit = true
       _this.goodsDataClear()
-      if (e.asn_status !== _this.$t('inbound.predeliverystock')) {
+      if (e.asn_status !== _this.$t('inbound.presortstock')) {
         _this.$q.notify({
-          message: e.asn_code + ' ASN Status Is Not ' + _this.$t('inbound.predeliverystock'),
+          message: e.asn_code + ' ASN Status Is Not ' + _this.$t('inbound.presortstock'),
           icon: 'close',
           color: 'negative'
         })
@@ -1177,9 +1131,9 @@ export default {
     },
     deleteData (e) {
       var _this = this
-      if (e.asn_status !== _this.$t('inbound.predeliverystock')) {
+      if (e.asn_status !== _this.$t('inbound.presortstock')) {
         _this.$q.notify({
-          message: e.asn_code + ' ASN Status Is Not ' + _this.$t('inbound.predeliverystock'),
+          message: e.asn_code + ' ASN Status Is Not ' + _this.$t('inbound.presortstock'),
           icon: 'close',
           color: 'negative'
         })
@@ -1216,88 +1170,7 @@ export default {
       _this.deleteForm = false
       _this.deleteid = 0
     },
-    preloadData (e) {
-      var _this = this
-      if (e.asn_status !== _this.$t('inbound.predeliverystock')) {
-        _this.$q.notify({
-          message: e.asn_code + ' ASN Status Is Not ' + _this.$t('inbound.predeliverystock'),
-          icon: 'close',
-          color: 'negative'
-        })
-      } else {
-        _this.preloadForm = true
-        _this.preloadid = e.id
-      }
-    },
-    preloadDataSubmit () {
-      var _this = this
-      postauth(_this.pathname + 'preload/' + _this.preloadid + '/', {})
-        .then(res => {
-          _this.table_list = []
-          _this.preloadDataCancel()
-          _this.getList()
-          if (!res.detail) {
-            _this.$q.notify({
-              message: 'Success Confirm ASN Delivery',
-              icon: 'check',
-              color: 'green'
-            })
-          }
-        })
-        .catch(err => {
-          _this.$q.notify({
-            message: err.detail,
-            icon: 'close',
-            color: 'negative'
-          })
-        })
-    },
-    preloadDataCancel () {
-      var _this = this
-      _this.preloadForm = false
-      _this.preloadid = 0
-    },
-    presortData (e) {
-      var _this = this
-      if (e.asn_status !== _this.$t('inbound.preloadstock')) {
-        _this.$q.notify({
-          message: e.asn_code + ' ASN Status Is Not ' + _this.$t('inbound.preloadstock'),
-          icon: 'close',
-          color: 'negative'
-        })
-      } else {
-        _this.presortForm = true
-        _this.presortid = e.id
-      }
-    },
-    presortDataSubmit () {
-      var _this = this
-      postauth(_this.pathname + 'presort/' + _this.presortid + '/', {})
-        .then(res => {
-          _this.table_list = []
-          _this.presortDataCancel()
-          _this.getList()
-          if (!res.detail) {
-            _this.$q.notify({
-              message: 'Success Load ASN',
-              icon: 'check',
-              color: 'green'
-            })
-          }
-        })
-        .catch(err => {
-          _this.$q.notify({
-            message: err.detail,
-            icon: 'close',
-            color: 'negative'
-          })
-        })
-    },
-    presortDataCancel () {
-      var _this = this
-      _this.presortForm = false
-      _this.presortid = 0
-    },
+
     getFocus (number) {
       this.listNumber = number
     },
@@ -1396,31 +1269,7 @@ export default {
       }
       _this.goodsDataClear()
     },
-    viewData (e) {
-      var _this = this
-      ViewPrintAuth(_this.pathname + 'viewprint/' + e.id + '/').then(res => {
-        _this.viewprint_table = res.asn_detail
-        _this.warehouse_detail = res.warehouse_detail
-        _this.supplier_detail = res.supplier_detail
-        _this.viewAsn = e.asn_code
-        var QRCode = require('qrcode')
-        QRCode.toDataURL(e.bar_code, [
-          {
-            errorCorrectionLevel: 'H',
-            mode: 'byte',
-            version: '2',
-            type: 'image/jpeg'
-          }
-        ])
-          .then(url => {
-            _this.bar_code = url
-          })
-          .catch(err => {
-            console.error(err)
-          })
-        _this.viewForm = true
-      })
-    }
+
   },
   created () {
     var _this = this

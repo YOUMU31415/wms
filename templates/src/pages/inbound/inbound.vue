@@ -10,15 +10,6 @@
           <q-route-tab name="asn" :label="$t('inbound.asn')" icon="img:statics/inbound/asn.png" :to="{ name: 'asn' }" exact/>
         </transition>
         <transition appear enter-active-class="animated zoomIn">
-          <q-route-tab name="predeliverystock" :label="$t('inbound.predeliverystock')"  icon="img:statics/inbound/polist.png" :to="{ name: 'predeliverystock' }" exact/>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-route-tab name="preloadstock" :label="$t('inbound.preloadstock')" icon="img:statics/inbound/preloadstock.png" :to="{ name: 'preloadstock' }" exact/>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-route-tab name="presortstock" :label="$t('inbound.presortstock')" icon="img:statics/inbound/presortstock.png" :to="{ name: 'presortstock' }" exact/>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
           <q-route-tab name="sortstock" :label="$t('inbound.sortstock')" icon="img:statics/inbound/sortstock.png" :to="{ name: 'sortstock' }" exact/>
         </transition>
         <transition appear enter-active-class="animated zoomIn">
