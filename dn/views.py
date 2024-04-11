@@ -124,10 +124,10 @@ class DnListViewSet(viewsets.ModelViewSet):
         if qs.openid != self.request.auth.openid:
             raise APIException({"detail": "Cannot delete data which not yours"})
         else:
-            if qs.dn_status == 1:
+            if qs.dn_status == 2:
                 qs.is_delete = True
                 dn_detail_list = DnDetailModel.objects.filter(openid=self.request.auth.openid, dn_code=qs.dn_code,
-                                              dn_status=1, is_delete=False)
+                                              dn_status=2, is_delete=False)
                 for i in range(len(dn_detail_list)):
                     goods_qty_change = stocklist.objects.filter(openid=self.request.auth.openid,
                                                                 goods_code=str(dn_detail_list[i].goods_code)).first()
@@ -308,7 +308,7 @@ class DnDetailViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         data = self.request.data
         if DnListModel.objects.filter(openid=self.request.auth.openid, dn_code=str(data['dn_code']),
-                                       dn_status=1, is_delete=False).exists():
+                                       dn_status=2, is_delete=False).exists():
             if customer.objects.filter(openid=self.request.auth.openid, customer_name=str(data['customer']),
                                        is_delete=False).exists():
                 staff_name = staff.objects.filter(openid=self.request.auth.openid,
@@ -437,10 +437,12 @@ class DnDetailViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, pk):
         qs = self.get_object()
+
         if qs.openid != self.request.auth.openid:
             raise APIException({"detail": "Cannot delete data which not yours"})
         else:
-            if qs.dn_status == 2 and qs.back_order_label:
+
+            if qs.dn_status == 2 or qs.back_order_label:
                 qs.is_delete = True
                 goods_qty_change = stocklist.objects.filter(openid=self.request.auth.openid,
                                                             goods_code=str(qs.goods_code)).first()
@@ -1634,7 +1636,7 @@ class DnPickedViewSet(viewsets.ModelViewSet):
                         raise APIException({"detail": str(data['goodsData'][i].get('goods_code')) + " Picked Qty Must Less Than Pick Qty"})
                     else:
                         continue
-            qs.dn_status = 4
+            qs.dn_status = 6
             staff_name = staff.objects.filter(openid=self.request.auth.openid,
                                               id=self.request.META.get('HTTP_OPERATOR')).first().staff_name
             for j in range(len(data['goodsData'])):
@@ -1697,7 +1699,7 @@ class DnPickedViewSet(viewsets.ModelViewSet):
                     bin_qty_change.save()
                 dn_detail.picked_qty = dn_detail.picked_qty + int(data['goodsData'][j].get('pick_qty'))
                 if dn_detail.dn_status == 3:
-                    dn_detail.dn_status = 4
+                    dn_detail.dn_status = 6
                 if dn_detail.pick_qty > 0:
                     dn_detail.pick_qty = 0
                 dn_detail.save()

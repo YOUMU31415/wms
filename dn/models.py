@@ -2,7 +2,7 @@ from django.db import models
 
 class DnListModel(models.Model):
     dn_code = models.CharField(max_length=255, verbose_name="DN Code")
-    dn_status = models.BigIntegerField(default=1, verbose_name="DN Status")
+    dn_status = models.BigIntegerField(default=2, verbose_name="DN Status")
     total_weight = models.FloatField(default=0, verbose_name="Total Weight")
     total_volume = models.FloatField(default=0, verbose_name="Total Volume")
     total_cost = models.FloatField(default=0, verbose_name="Total Cost")
@@ -24,7 +24,7 @@ class DnListModel(models.Model):
 
 class DnDetailModel(models.Model):
     dn_code = models.CharField(max_length=255, verbose_name="DN Code")
-    dn_status = models.BigIntegerField(default=1, verbose_name="DN Status")
+    dn_status = models.BigIntegerField(default=2, verbose_name="DN Status")
     customer = models.CharField(max_length=255, verbose_name="DN Customer")
     goods_code = models.CharField(max_length=255, verbose_name="Goods Code")
     goods_desc = models.CharField(max_length=255, verbose_name="Goods Description")

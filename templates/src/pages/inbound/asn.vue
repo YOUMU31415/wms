@@ -46,7 +46,6 @@
           <q-tr :props="props">
             <q-td key="asn_code" :props="props">{{ props.row.asn_code }}</q-td>
             <q-td key="asn_status" :props="props">{{ props.row.asn_status }}</q-td>
-            <q-td key="good_qty" :props="props">{{ props.row.goods_qty }}</q-td>
             <q-td key="supplier" :props="props">{{ props.row.supplier }}</q-td>
             <q-td key="creater" :props="props">{{ props.row.creater }}</q-td>
             <q-td key="create_time" :props="props">{{ props.row.create_time }}</q-td>
@@ -675,7 +674,6 @@ export default {
       columns: [
         { name: 'asn_code', required: true, label: this.$t('inbound.view_asn.asn_code'), align: 'left', field: 'asn_code' },
         { name: 'asn_status', label: this.$t('inbound.view_asn.asn_status'), field: 'asn_status', align: 'center' },
-        { name: 'goods_qty', label: this.$t('inbound.view_asn.goods_qty'), field: 'goods_qty', align: 'center' },
         { name: 'supplier', label: this.$t('baseinfo.view_supplier.supplier_name'), field: 'supplier', align: 'center' },
         { name: 'creater', label: this.$t('creater'), field: 'creater', align: 'center' },
         { name: 'create_time', label: this.$t('createtime'), field: 'create_time', align: 'center' },

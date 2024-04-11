@@ -74,13 +74,17 @@ class AsnListViewSet(viewsets.ModelViewSet):
             return AsnListModel.objects.none()
 
     def get_serializer_class(self):
+
         if self.action in ['list', 'retrieve', 'destroy']:
             return serializers.ASNListGetSerializer
         elif self.action in ['create']:
+
             return serializers.ASNListPostSerializer
         elif self.action in ['update']:
+
             return serializers.ASNListUpdateSerializer
         elif self.action in ['partial_update']:
+
             return serializers.ASNListPartialUpdateSerializer
         else:
             return self.http_method_not_allowed(request=self.request)

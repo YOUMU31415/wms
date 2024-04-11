@@ -48,33 +48,11 @@
           <q-tr :props="props">
             <q-td key="dn_code" :props="props">{{ props.row.dn_code }}</q-td>
             <q-td key="dn_status" :props="props">{{ props.row.dn_status }}</q-td>
-            <q-td key="total_weight" :props="props">{{ props.row.total_weight.toFixed(4) }}</q-td>
-            <q-td key="total_volume" :props="props">{{ props.row.total_volume.toFixed(4) }}</q-td>
             <q-td key="customer" :props="props">{{ props.row.customer }}</q-td>
             <q-td key="creater" :props="props">{{ props.row.creater }}</q-td>
             <q-td key="create_time" :props="props">{{ props.row.create_time }}</q-td>
             <q-td key="update_time" :props="props">{{ props.row.update_time }}</q-td>
             <q-td key="action" :props="props" style="width: 100px">
-              <q-btn
-                round
-                flat
-                push
-                color="info"
-                icon="visibility"
-                @click="viewData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('printthisdn') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="positive"
-                icon="img:statics/outbound/order.png"
-                @click="neworderData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('confirmorder') }}</q-tooltip>
-              </q-btn>
               <q-btn
                 round
                 flat
@@ -85,16 +63,7 @@
               >
                 <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('releaseorder') }}</q-tooltip>
               </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="secondary"
-                icon="print"
-                @click="PrintPickingList(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('print') }}</q-tooltip>
-              </q-btn>
+
               <q-btn
                 round
                 flat
@@ -105,26 +74,7 @@
               >
                 <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('confirmpicked') }}</q-tooltip>
               </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="dark"
-                icon="rv_hookup"
-                @click="DispatchDN(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('dispatch') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="info"
-                icon="img:statics/outbound/receiving.png"
-                @click="PODData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('outbound.pod') }}</q-tooltip>
-              </q-btn>
+
               <q-btn
                 round
                 flat
@@ -146,20 +96,7 @@
                 <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('delete') }}</q-tooltip>
               </q-btn>
             </q-td>
-            <template v-if="props.row.transportation_fee.detail !== []">
-              <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
-                <q-list>
-                  <div v-for="(transportation_fee, index) in props.row.transportation_fee.detail" :key="index">
-                    <q-item v-ripple>
-                      <q-item-section>
-                        <q-item-label>{{ transportation_fee.transportation_supplier }}</q-item-label>
-                        <q-item-label>{{ $t('estimate') }}: {{ transportation_fee.transportation_cost }}</q-item-label>
-                      </q-item-section>
-                    </q-item>
-                  </div>
-                </q-list>
-              </q-tooltip>
-            </template>
+
           </q-tr>
         </template>
       </q-table>
@@ -872,8 +809,6 @@ export default {
       columns: [
         { name: 'dn_code', required: true, label: this.$t('outbound.view_dn.dn_code'), align: 'left', field: 'dn_code' },
         { name: 'dn_status', label: this.$t('outbound.view_dn.dn_status'), field: 'dn_status', align: 'center' },
-        { name: 'total_weight', label: this.$t('outbound.view_dn.total_weight'), field: 'total_weight', align: 'center' },
-        { name: 'total_volume', label: this.$t('outbound.view_dn.total_volume'), field: 'total_volume', align: 'center' },
         { name: 'customer', label: this.$t('outbound.view_dn.customer'), field: 'customer', align: 'center' },
         { name: 'creater', label: this.$t('creater'), field: 'creater', align: 'center' },
         { name: 'create_time', label: this.$t('createtime'), field: 'create_time', align: 'center' },
@@ -1284,9 +1219,9 @@ export default {
       var _this = this
       _this.isEdit = true
       _this.goodsDataClear()
-      if (e.dn_status !== _this.$t('outbound.freshorder')) {
+      if (e.dn_status !== _this.$t('outbound.neworder')) {
         _this.$q.notify({
-          message: e.dn_code + ' DN Status Not ' + _this.$t('outbound.freshorder'),
+          message: e.dn_code + ' DN Status Not ' + _this.$t('outbound.neworder'),
           icon: 'close',
           color: 'negative'
         })
@@ -1381,9 +1316,9 @@ export default {
     },
     deleteData (e) {
       var _this = this
-      if (e.dn_status !== _this.$t('outbound.freshorder')) {
+      if (e.dn_status !== _this.$t('outbound.neworder')) {
         _this.$q.notify({
-          message: e.dn_code + ' DN Status Is Not ' + _this.$t('outbound.freshorder'),
+          message: e.dn_code + ' DN Status Is Not ' + _this.$t('outbound.neworder'),
           icon: 'close',
           color: 'negative'
         })
