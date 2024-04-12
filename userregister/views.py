@@ -43,12 +43,12 @@ randomshape = ["Square", "Rectangle", "Cone", "Cylinder", "Irregular"]
 randomspecs = ["1 x 10", "3 x 3", "5 x 5", "6 x 6"]
 
 def randomStaffType():
-    List = ["Manager", "Supervisor", "Inbound", "Outbound", "StockControl"]
+    List = ["Manager"]
     return (random.choice(List))
 
-randombinproperty = ["Normal", "Holding", "Damage", "Inspection"]
+randombinproperty = ["Normal"]
 
-randombinsize = ["Big", "Floor", "Tiny", "Small"]
+randombinsize = ["Normal"]
 
 @method_decorator(csrf_exempt, name='dispatch')
 def register(request, *args, **kwargs):
@@ -145,7 +145,7 @@ def register(request, *args, **kwargs):
                                                      )
                             from supplier.models import ListModel as supplier
                             supplier_data_list = []
-                            for supplier_data in range(1, 42):
+                            for supplier_data in range(1, 3):
                                 demo_data = supplier(openid=transaction_code,
                                                      supplier_name='Supplier Name-' + str(supplier_data),
                                                      supplier_city=str(random.choice(randomcity)),
@@ -158,10 +158,11 @@ def register(request, *args, **kwargs):
                             supplier.objects.bulk_create(supplier_data_list, batch_size=100)
                             from customer.models import ListModel as customer
                             customer_data_list = []
-                            for customer_data in range(1, 42):
+                            customer_temp = str(random.choice(randomcity))
+                            for customer_data in range(1, 4):
                                 demo_data = customer(openid=transaction_code,
-                                                     customer_name='Customer Name-' + str(customer_data),
-                                                     customer_city=str(random.choice(randomcity)),
+                                                     customer_name = customer_temp + '-' + str(customer_data),
+                                                     customer_city=customer_temp,
                                                      customer_address='Address-' + str(customer_data),
                                                      customer_contact=str(randomPhone()),
                                                      customer_manager=str(random.choice(randomname)),
@@ -170,11 +171,11 @@ def register(request, *args, **kwargs):
                                 customer_data_list.append(demo_data)
                             customer.objects.bulk_create(customer_data_list, batch_size=100)
                             staff_data_list = []
-                            for staff_data in randomname:
+                            for staff_data in randomname[:5]:
                                 demo_data = staff(openid=transaction_code,
                                                   staff_name=staff_data,
                                                   staff_type=str(randomStaffType()),
-                                                  check_code=random.randint(1000, 9999)
+                                                  check_code=random.randint(10000000, 99999999)
                                                   )
                                 staff_data_list.append(demo_data)
                             staff.objects.bulk_create(staff_data_list, batch_size=100)

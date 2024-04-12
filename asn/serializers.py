@@ -5,6 +5,7 @@ from utils import datasolve
 class ASNListGetSerializer(serializers.ModelSerializer):
     asn_code = serializers.CharField(read_only=True, required=False)
     asn_status = serializers.IntegerField(read_only=True, required=False)
+    goods_qty = serializers.IntegerField(read_only=True, required=False)
     supplier = serializers.CharField(read_only=True, required=False)
     bar_code = serializers.CharField(read_only=True, required=False)
     creater = serializers.CharField(read_only=True, required=False)

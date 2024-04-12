@@ -9,12 +9,17 @@
         <transition appear enter-active-class="animated zoomIn">
           <q-route-tab name="dn" :label="$t('outbound.dn')" icon="img:statics/outbound/dnlist.png" :to="{ name: 'dn' }" exact/>
         </transition>
+
         <transition appear enter-active-class="animated zoomIn">
           <q-route-tab name="neworder" :label="$t('outbound.neworder')" icon="img:statics/outbound/order.png" :to="{ name: 'neworder' }" exact/>
         </transition>
         <transition appear enter-active-class="animated zoomIn">
+          <q-route-tab name="backorder" :label="$t('outbound.backorder')" icon="img:statics/outbound/backorder.png" :to="{ name: 'backorder' }" exact/>
+        </transition>
+        <transition appear enter-active-class="animated zoomIn">
           <q-route-tab name="pickstock" :label="$t('outbound.pickstock')" icon="img:statics/outbound/pickstock.png" :to="{ name: 'pickstock' }" exact/>
         </transition>
+
         <transition appear enter-active-class="animated zoomIn">
           <q-route-tab name="pickinglist" :label="$t('outbound.pickinglist')" icon="img:statics/outbound/pickinglist.png" :to="{ name: 'pickinglist' }" exact/>
         </transition>

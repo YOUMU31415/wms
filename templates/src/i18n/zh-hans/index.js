@@ -171,8 +171,8 @@ export default {
     }
   },
   dashboards: {
-    outbound_statements: '出库报表',
-    inbound_statements: '收货报表',
+    outbound_statements: '地域报表',
+    inbound_statements: '商品报表',
     inbound_and_outbound_statements: '收发货报表',
     total_sales: '总销量',
     category_sales_ranking: '品类销量排名',

@@ -217,6 +217,7 @@
             exact
             :active="link === 'inbound' && link !== ''"
             :class="{ 'my-menu-link': link === 'inbound' && link !== '' }"
+
           >
             <q-item-section avatar
               ><q-icon name="speaker_notes"
@@ -295,6 +296,7 @@
             exact
             :active="link === 'staff' && link !== ''"
             :class="{ 'my-menu-link': link === 'staff' && link !== '' }"
+            v-if="$q.localStorage.getItem('staff_type') === 'Admin'"
           >
             <q-item-section avatar
               ><q-icon name="assignment_ind"
