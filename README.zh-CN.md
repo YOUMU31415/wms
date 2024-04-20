@@ -33,6 +33,10 @@ python安装
 nodejs安装
 - nodejs 16.20.2
 
+安装依赖
+```shell
+pip install -r requirements.txt
+```
 
 [//]: # (development)
 ## :hammer_and_wrench: 怎么启动开发环境:
