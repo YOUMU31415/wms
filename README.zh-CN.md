@@ -1,186 +1,90 @@
-<div align="center">
-  <img src="static/img/logo.png" alt="GreaterWMS logo" width="200" height="auto" />
-  <h1>GreaterWMS</h1>
-  <p>å®Œå…¨å¼€æºçš„ä»“åº“ç®¡ç†ç³»ç»Ÿ</p>
+# ±¾ÏîÄ¿ÓÉgreatwms¶ş¸Ä
+Ô­ÏîÄ¿µØÖ·£ºhttps://github.com/GreaterWMS/GreaterWMS
 
-<!-- Badges -->
-![License: APLv2](https://img.shields.io/github/license/GreaterWMS/GreaterWMS)
-![Release Version (latest Version)](https://img.shields.io/github/v/release/GreaterWMS/GreaterWMS?color=orange&include_prereleases)
-![QR Code Support](https://img.shields.io/badge/QR--Code-Support-orange.svg)
-![Docker Support](https://img.shields.io/badge/Docker-Support-orange.svg)
-![i18n Support](https://img.shields.io/badge/i18n-Support-orange.svg)
 
-![repo size](https://img.shields.io/github/repo-size/GreaterWMS/GreaterWMS)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/GreaterWMS/GreaterWMS)
-![Contributors](https://img.shields.io/github/contributors/GreaterWMS/GreaterWMS?color=blue)
 
-![GitHub Org's stars](https://img.shields.io/github/stars/GreaterWMS?style=social)
-![GitHub Follows](https://img.shields.io/github/followers/Singosgu?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/GreaterWMS/GreaterWMS?style=social)
-![GitHub Watch](https://img.shields.io/github/watchers/GreaterWMS/GreaterWMS?style=social)
-
-![Python](https://img.shields.io/badge/Python-3.8.10-yellowgreen)
-![Django](https://img.shields.io/badge/Django-4.1.2-yellowgreen)
-![Quasar Cli](https://img.shields.io/badge/Quasar/cli-1.2.1-yellowgreen)
-![Vue](https://img.shields.io/badge/Vue-2.6.0-yellowgreen)
-![NodeJS](https://img.shields.io/badge/NodeJS-14.19.3-yellowgreen)
-
-[![BiliBili](https://img.shields.io/badge/BiliBili-4987-red)](https://space.bilibili.com/407321291/channel/seriesdetail?sid=776320)
-</div>
-
-## :rocket: æ‰¾åˆ°æˆ‘ä»¬
 <h4>
-    <a href="https://www.56yhz.com/">å®˜ç½‘é¦–é¡µ</a>
-</h4>
-<h4>
-    <a href="https://production.56yhz.com/">æ¼”ç¤ºåœ°å€</a>
-</h4>
-<h4>
-  <a href="https://space.bilibili.com/407321291?spm_id_from=333.1007.0.0">æ•™ç¨‹è§†é¢‘</a>
-</h4>
-<h4>
-  <a href="https://github.com/GreaterWMS/GreaterwMS/issues/new?template=bug_report.md&title=[BUG]">æäº¤ä¸€ä¸ªBug</a>
-</h4>
-<h4>   
-  <a href="https://github.com/GreaterWMS/GreaterWMS/issues/new?template=feature_request.md&title=[FR]">æäº¤ä¸€ä¸ªå»ºè®®</a>
-</h4>
-<h4>
-  <a href="https://www.56yhz.com/greaterwms.html">è‹±æ–‡æ–‡æ¡£</a>
+    <a href="https://www.56yhz.com/md/nginx_config/zh-CN">¹ÙÍøÊ×Ò³</a>
 </h4>
 
-QQæŠ€æœ¯äº¤æµç¾¤ï¼š289548524
 
-[//]: # (About the Project)
-### :star2: å…³äºæ­¤é¡¹ç›®
 
-è¯¥åº“å­˜ç®¡ç†ç³»ç»Ÿæ˜¯ï¼Œç›®å‰ç¦ç‰¹äºšå¤ªåŒºå”®åç‰©æµä»“å‚¨ä¾›åº”é“¾æµç¨‹ã€‚
-ç¦»å¼€ç¦ç‰¹åï¼Œæˆ‘å¼€å§‹äº†è¿™ä¸ªé¡¹ç›®ã€‚ ä¸ºäº†å¸®åŠ©ä¸€äº›æœ‰éœ€è¦çš„äººã€‚
-OneAPP ç†å¿µã€‚ æ”¯æŒæ‰«æè®¾å¤‡PDAã€æ‰‹æœºAPPã€æ¡Œé¢exeã€ç½‘ç«™ç­‰ã€‚
+
 
 [//]: # (Function)
-## :dart: æ¨¡å—
+## :dart: Ä£¿é¹¦ÄÜ
 
-* [x] å¤šä»“
-* [x] ä¾›åº”å•†ç®¡ç†
-* [x] å®¢æˆ·ç®¡ç†
-* [x] æ‰«æè®¾å¤‡PDA
-* [x] ç›˜ç‚¹
-* [x] è®¢å•ç®¡ç†
-* [x] åº“å­˜ç®¡ç†
-* [x] å®‰å…¨åº“å­˜
-* [x] APIæ–‡æ¡£
-* [x] IOS APPæ”¯æŒ
-* [x] Android APPæ”¯æŒ
-* [x] Electron APPæ”¯æŒ
-* [x] è‡ªåŠ¨æ›´æ–°
-* [x] i18nå›½é™…åŒ–
+* [x] ¶à²Ö
+* [x] ¹©Ó¦ÉÌ¹ÜÀí
+* [x] ¿Í»§¹ÜÀí
+* [x] ¶©µ¥¹ÜÀí
+* [x] ¿â´æ¹ÜÀí
+* [x] APIÎÄµµ
+* [x] IOS APPÖ§³Ö
+* [x] Android APPÖ§³Ö
+* [x] Electron APPÖ§³Ö
+* [x] i18n¹ú¼Ê»¯
 
 [//]: # (Install)
-## :compass: å®‰è£…
-pythonå®‰è£…
-- [python 3.8.10](https://www.python.org/downloads/release/python-3810/)
+## :compass: °²×°ËùĞé»·¾³
+python°²×°
+- python 3.8.10
 
-nodejså®‰è£…
-- [nodejs 14.19.3](https://nodejs.org/download/release/v14.19.3/)
+nodejs°²×°
+- nodejs 16.20.2
 
-Twistedå®‰è£…
-- Twistedåœ¨æŸäº›æƒ…å†µä¸‹å®‰è£…å¾ˆå›°éš¾ï¼Œè¯·è‡ªè¡Œç™¾åº¦å®‰è£…æ–¹æ³•
-
-å…‹éš†ä»£ç 
-~~~shell
-git clone https://gitee.com/Singosgu/GreaterWMS.git
-~~~
-
-### docker(å¯é€‰æ‹©)
-~~~shell
-cd GreaterWMS/
-docker-compose up -d
-# ä¿®æ”¹è¯·æ±‚åœ°å€
-# baseurl GreaterWMS/templates/public/statics/baseurl.txt
-docker-compose restart
-~~~
-
-<h4>
-  <a href="https://www.56yhz.com/zh/win_10.html">Windows X64</a>
-</h4>
-<h4>
-  <a href="https://www.56yhz.com/zh/centos_7.html">Centos 7</a>
-</h4>
-<h4>
-  <a href="https://www.56yhz.com/zh/ubuntu_20.html">Ubuntu 20</a>
-</h4>
 
 [//]: # (development)
-## :hammer_and_wrench: æ€ä¹ˆå¯åŠ¨å¼€å‘ç¯å¢ƒ:
+## :hammer_and_wrench: ÔõÃ´Æô¶¯¿ª·¢»·¾³:
 
-- å¯åŠ¨åç«¯ç¯å¢ƒ:
+- Æô¶¯ºó¶Ë»·¾³:
+- µÚÒ»´ÎÆô¶¯Çë³õÊ¼»¯Êı¾İ¿â
+  
+~~~shell
+python3 manage.py makemigrations
+python3 manage.py migrate
+~~~
+- ºóĞøÊ¹ÓÃ
 ~~~shell
 cd GreaterWMS
 daphne -p 8008 greaterwms.asgi:application
 or
-daphne -b 0.0.0.0 -p 8008 greaterwms.asgi:application # å±€åŸŸç½‘
+daphne -b 0.0.0.0 -p 8008 greaterwms.asgi:application # ¾ÖÓòÍø
 ~~~
 
-- å¯åŠ¨å‰ç«¯ç¯å¢ƒ:
-~~~shell
-cd templates
-quasar d # http://localhost:8080
-or
-quasar dev # http://localhost:8080
-~~~
 
-- è¯·æ±‚åœ°å€ä¿®æ”¹
+- ÇëÇóµØÖ·ĞŞ¸Ä
 ~~~shell
 templates/public/statics/baseurl.txt
 ~~~
 
-- APIæ–‡æ¡£
+- APIÎÄµµ
 
 ~~~shell
 baseurl + '/docs/'
 ~~~
 
-### é…å¥—çš„æ‰‹æœºAPP
+### ÅäÌ×µÄÊÖ»úAPP£¨½öĞŞ¸ÄÁË´úÂë£¬Î´Êµ¼Ê²âÊÔ£©
 
-- Appæºç ç¼–è¯‘
+- AppÔ´Âë±àÒë
+- ĞèÒªsdkÅäÖÃ
 
 ~~~shell
 npm install cordova -g
 
 cd app
 yarn install
-## å¼€å‘ç¯å¢ƒ
+## ¿ª·¢»·¾³
 quasar d -m cordova -T [android, ios]
-## æ„å»ºæ‰“åŒ…
+## ¹¹½¨´ò°ü
 quasar build -m [android, ios]
 ~~~
 
-- ä½ ä¸æƒ³ç¼–è¯‘ä¹Ÿå¯ä»¥ç›´æ¥ä½¿ç”¨
-
-[IOS](https://apps.apple.com/cn/app/%E6%99%BA%E8%83%BD%E4%BB%93%E5%82%A8%E8%BD%AF%E4%BB%B6gwms/id6444078526)
-
-[Android](https://production.56yhz.com/media/GWMS.apks)
-
-GreaterWMSæœ‰é…å¥—çš„APPï¼Œæ”¯æŒæ‰‹æœºæ‰«æï¼Œå’ŒPDAæ‰«æï¼Œé…ç½®ä¸‹æœåŠ¡å™¨è¯·æ±‚åœ°å€å³å¯
-
-## ä¸‹è½½apkså®‰è£…å·¥å…·
-
-!!! info "Android"
-    
-    åº”ç”¨å•†åº—æœç´¢
-
-    Split APKs Installer 
-
-## æˆ–ç›´æ¥ä¸‹è½½apkså®‰è£…å·¥å…·
-
-[Sai](https://po.56yhz.com/media/sai.apk)
-
-- æ‰“å¼€Sai APPï¼Œé€‰æ‹©ä¸‹è½½çš„GWMS.apksï¼Œå³å¯å®Œæˆå®‰è£…
 
 [//]: # (publish)
-## :trumpet: æ€ä¹ˆæ„å»ºä½ çš„app:
+## :trumpet: ÔõÃ´ĞŞ¸ÄÄãµÄÇ°¶ËÍøÒ³:
 
-- ç½‘é¡µç‰ˆæ„å»º:
+- ÍøÒ³°æ¹¹½¨:
 
 ~~~shell
 cd templates
@@ -188,29 +92,14 @@ quasar build # /templates/dist/spa
 ~~~
 
 [//]: # (deploy)
-## :computer: æ€ä¹ˆéƒ¨ç½²åˆ°æœåŠ¡å™¨:
+## :computer: ÔõÃ´²¿Êğµ½·şÎñÆ÷:
 
-<h4>
-  <a href="https://www.56yhz.com/zh/supervisor_process_guarded.html">Supervisoræ•™ç¨‹</a>
-</h4>
-<h4>
-  <a href="https://www.56yhz.com/zh/nginx_config.html">Nginxé…ç½®</a>
-</h4>
+¿É²Î¿¼¹ÙÍøÎÄµµ½Ì³Ì
 
-è®°å¾—å¯ç”¨sslçš„è¯ï¼Œéœ€è¦é¢å¤–é…ç½®
-åœ¨å‰ç«¯ä»£ç ä¸­è¿›è¡Œç¼–è¾‘
 
-## Show
-<div align="left">
-    <img src="static/img/GreaterWMS.png" alt="GreaterWMS home" width="" height="400" />
-</div>
-<div align="left">
-    <img src="static/img/mobile_splash.jpg" alt="GreaterWMS splash" width="200" height="400" />
-    <img src="static/img/mobile_dn.jpg" alt="GreaterWMS dn" width="200" height="400" />
-    <img src="static/img/mobile_equ.jpg" alt="GreaterWMS goods" width="200" height="400" />
-</div>
-
-<!-- ABOUT AUTHOR -->
-## :bowing_man: å…³äºä½œè€…
-
-[Elvis.Shi](https://gitee.com/GreaterWMS/GreaterWMS/wikis/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E4%BB%8E%E4%B8%80%E4%B8%AA%E7%89%A9%E6%B5%81%E8%8F%9C%E9%B8%9F%EF%BC%8C%E4%B8%80%E7%9B%B4%E5%81%9A%E5%88%B0500%E5%BC%BA%E4%BA%9A%E5%A4%AA%E5%8C%BAChina%20PDC%20Manager%E7%9A%84)
+# ×¢ÒâÊÂÏî
+- ¼ÇµÃÆôÓÃsslµÄ»°£¬ĞèÒª¶îÍâÅäÖÃ£¬ÔÚÇ°¶Ë´úÂëÖĞ½øĞĞ±à¼­
+- ÈôÏ£Íû×èÖ¹ÆäËûÈË·ÃÎÊ£¬¿ÉÒÔ½«ÍøÕ¾²¿ÊğÔÚ·şÎñÆ÷ÄÚÍø£¬ÉèÖÃÒ»¸ö¹«ÍøÍøÕ¾Í¨¹ınginx·´´úÌø×ª£¬Í¬Ê±¶Ô¹«ÍøÍøÕ¾ÉèÖÃbase http authentication
+- ±¾ÏîÄ¿²ÉÓÃdjango+vue£¬Òò´Ë×Ü¹ÜÀíÔ±Îª admin/£¬³õÊ¼Çé¿öÎ´ÉèÖÃ
+- ±¾ÏîÄ¿¶à²Ö»¥Áª£¬×¢²áÍøÕ¾ÉÏµÄ¹ÜÀíÔ±½öÓµÓĞ¶ÀÁ¢µÄÓÃ»§¼°ÑéÖ¤Âë£¬Êı¾İ¿â¹²ÓÃ
+- ÓÃ»§µÄÑéÖ¤Âë³õÊ¼Îª8Î»Êı×ÖµÄËæ»úÉú³É£¬¿É¸ù¾İĞèÒª¸ü¸Ä

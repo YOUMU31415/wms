@@ -4,9 +4,7 @@
       <div class="q-mb-xl" style="color: #4C5875;text-align: center;">
         <div style="font-weight: bold;font-size: 100px;letter-spacing: 10px;">WELCOME</div>
         <div style="font-size: 22px;letter-spacing: 2px;">
-          GreaterWMS
-          <span v-if="isEnglish">&nbsp</span>
-          {{ $t('index.index_title') }}
+          华鹏陶瓷仓储管理平台
         </div>
       </div>
       <div class="flex flex-center">
